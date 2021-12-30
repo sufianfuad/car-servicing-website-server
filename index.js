@@ -22,7 +22,10 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 console.log(uri);
 async function run() {
     try {
-
+        await client.connect();
+        console.log('Database connected successfully');
+        const database = client.db('car-servicing')
+        const servicesCollection = database.collection('services');
     }
     finally {
         // await client.close();   
